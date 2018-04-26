@@ -68,6 +68,7 @@ app.get('/posts/:id/edit', function(req,res){
 });//edit
 app.put('/posts/:id', function(req,res){
   req.body.post.updatedAt=Date.now();
+  console.log(req.body.post); 
   Post.findByIdAndUpdate(req.params.id, req.body.post, function(err,post){
     if(err) return res.json({success:false, message:err});
     // res.json({success:true, message:post._id+" updated"});
